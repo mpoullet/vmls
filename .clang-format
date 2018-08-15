@@ -1,0 +1,21 @@
+BasedOnStyle: LLVM
+Language : Cpp
+Standard : Cpp11
+
+# JUCE coding conventions https://juce.com/learn/coding-standards
+IndentWidth: 4
+ContinuationIndentWidth: 4
+UseTab: Never
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+AccessModifierOffset: -4
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ColumnLimit: 0
+PointerBindsToType: true
+
+SpacesInParentheses: false
+SpacesInAngles: false
+SpaceBeforeAssignmentOperators: true
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: None
