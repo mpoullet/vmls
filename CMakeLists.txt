@@ -10,5 +10,6 @@ endif()
 
 add_library(eigen INTERFACE)
 target_include_directories(eigen INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/eigen-git-mirror)
+target_compile_features(eigen INTERFACE cxx_std_11)
 
 add_subdirectory(src)
