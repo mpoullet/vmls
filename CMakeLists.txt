@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.11)
 project(vmls)
 
 if (MSVC)
-    add_compile_options(/W4 /WX)
+    add_compile_options(/W4 /WX /permissive-)
 else()
-    add_compile_options(-Wall -Wextra -pedantic -Werror)
+    add_compile_options(-Wall -Wextra -Wdeprecated -Werror -pedantic)
 endif()
 
 add_library(eigen INTERFACE)
