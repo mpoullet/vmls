@@ -4,15 +4,10 @@
 image:
   - Ubuntu1804
   - Visual Studio 2017
-clone_script:
-  - cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-  - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
-  - sh: git clone -q --recursive --branch=${APPVEYOR_REPO_BRANCH} https://github.com/${APPVEYOR_REPO_NAME}.git ${APPVEYOR_BUILD_FOLDER}
-  - sh: git checkout -qf ${APPVEYOR_REPO_COMMIT}
 install:
   - sh: sudo update-alternatives --set gcc /usr/bin/gcc-8
 before_build:
-  - sh: g++ --version
+  - git submodule update --init --recursive
   - cmake --version
   - mkdir build
   - cd build
