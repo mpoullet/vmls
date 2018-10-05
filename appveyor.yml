@@ -9,9 +9,22 @@ install:
 before_build:
   - git submodule update --init --recursive
   - cmake --version
-  - mkdir build
-  - cd build
-  - cmake ..
+  - sh: sudo apt-get -y -qq install clang
+  - sh: g++ --version && clang++ --version
+  - sh: mkdir build_gnu
+  - sh: cd build_gnu
+  - sh: CXX=g++ CC=gcc cmake ..
+  - sh: cd ..
+  - sh: mkdir build_llvm
+  - sh: cd build_llvm
+  - sh: CXX=clang++ CC=clang cmake ..
+  - sh: cd ..
+  - cmd: mkdir build
+  - cmd: cd build
+  - cmd: cmake ..
+  - cmd: cd ..
 build_script:
+  - sh: cmake --build build_gnu --clean-first
+  - sh: cmake --build build_llvm --clean-first
 # See: Building MSVC project with cmake and command-line: https://stackoverflow.com/a/8559426/496459
-  - cmake --build . --clean-first
+  - cmd: cmake --build build --clean-first
