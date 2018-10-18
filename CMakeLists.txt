@@ -5,7 +5,7 @@ project(vmls)
 if (MSVC)
     add_compile_options(/W4 /WX /permissive-)
 else()
-    add_compile_options(-Wall -Wextra -Wdeprecated -Werror -pedantic)
+    add_compile_options(-Wall -Wextra -Werror -Wpedantic -pedantic-errors)
 endif()
 
 add_library(eigen INTERFACE)
